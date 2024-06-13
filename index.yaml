@@ -1,6 +1,27 @@
 apiVersion: v1
 entries:
+  discord-bot:
+  - apiVersion: v2
+    appVersion: 0.0.8
+    created: "2024-06-13T23:02:39.900351903Z"
+    description: A Helm chart for Kubernetes
+    digest: be019320d9053489a3364a1eefab1ae275ef6f8ca8d9be37f273a53e08764534
+    name: discord-bot
+    type: application
+    urls:
+    - https://github.com/rssnyder/charts/releases/download/discord-bot-0.0.2/discord-bot-0.0.2.tgz
+    version: 0.0.2
   discord-bot-cryptoprices:
+  - apiVersion: v2
+    appVersion: 0.0.3
+    created: "2024-06-13T23:02:40.02590419Z"
+    description: A Helm chart for Kubernetes
+    digest: e719b4e000abbded3dbf7659f775de5f0443fe19728062a3d5ef7948f9850061
+    name: discord-bot-cryptoprices
+    type: application
+    urls:
+    - https://github.com/rssnyder/charts/releases/download/discord-bot-cryptoprices-0.0.3/discord-bot-cryptoprices-0.0.3.tgz
+    version: 0.0.3
   - apiVersion: v2
     appVersion: 0.0.2
     created: "2024-06-12T23:06:54.459113735Z"
@@ -21,27 +42,6 @@ entries:
     urls:
     - https://github.com/rssnyder/discord-bot-cryptoprices/releases/download/discord-bot-cryptoprices-0.0.1/discord-bot-cryptoprices-0.0.1.tgz
     version: 0.0.1
-  harness-ccm-autostopping:
-  - apiVersion: v2
-    appVersion: 1.1.3
-    created: "2024-02-21T18:31:05.008249346Z"
-    description: A Helm chart for the Harness CCM AutoStopping controller and router
-    digest: 74fa8bdd22729936c915e67e157643538a4dfc8884cbc39c49d43fee93cd1a21
-    name: harness-ccm-autostopping
-    type: application
-    urls:
-    - https://github.com/rssnyder/harness-ccm-autostopping/releases/download/harness-ccm-autostopping-0.1.0/harness-ccm-autostopping-0.1.0.tgz
-    version: 0.1.0
-  - apiVersion: v2
-    appVersion: 1.1.3
-    created: "2024-02-21T17:39:22.606462406Z"
-    description: A Helm chart for the Harness CCM AutoStopping controller and router
-    digest: a27b75c0a93d4666358ab315dcbc39fc7f5d610681aa885e5cc662263ab680b0
-    name: harness-ccm-autostopping
-    type: application
-    urls:
-    - https://github.com/rssnyder/harness-ccm-autostopping/releases/download/harness-ccm-autostopping-0.1.0-alpha/harness-ccm-autostopping-0.1.0-alpha.tgz
-    version: 0.1.0-alpha
   ff-proxy:
   - apiVersion: v2
     appVersion: 2.0.0
@@ -203,4 +203,25 @@ entries:
     urls:
     - https://github.com/rssnyder/feature-flag-relay-proxy/releases/download/ff-proxy-0.1.0/ff-proxy-0.1.0.tgz
     version: 0.1.0
-generated: "2024-06-12T23:06:54.459122812Z"
+  harness-ccm-autostopping:
+  - apiVersion: v2
+    appVersion: 1.1.3
+    created: "2024-02-21T18:31:05.008249346Z"
+    description: A Helm chart for the Harness CCM AutoStopping controller and router
+    digest: 74fa8bdd22729936c915e67e157643538a4dfc8884cbc39c49d43fee93cd1a21
+    name: harness-ccm-autostopping
+    type: application
+    urls:
+    - https://github.com/rssnyder/harness-ccm-autostopping/releases/download/harness-ccm-autostopping-0.1.0/harness-ccm-autostopping-0.1.0.tgz
+    version: 0.1.0
+  - apiVersion: v2
+    appVersion: 1.1.3
+    created: "2024-02-21T17:39:22.606462406Z"
+    description: A Helm chart for the Harness CCM AutoStopping controller and router
+    digest: a27b75c0a93d4666358ab315dcbc39fc7f5d610681aa885e5cc662263ab680b0
+    name: harness-ccm-autostopping
+    type: application
+    urls:
+    - https://github.com/rssnyder/harness-ccm-autostopping/releases/download/harness-ccm-autostopping-0.1.0-alpha/harness-ccm-autostopping-0.1.0-alpha.tgz
+    version: 0.1.0-alpha
+generated: "2024-06-13T23:02:40.025971204Z"
