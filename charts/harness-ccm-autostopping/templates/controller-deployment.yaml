@@ -1,0 +1,74 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  # name: {{ include "harness-ccm-autostopping.controller.name" . }}
+  name: autostopping-controller
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: autostopping-controller
+    {{- include "harness-ccm-autostopping.labels" . | nindent 4 }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      {{- include "harness-ccm-autostopping.controller.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.controller.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "harness-ccm-autostopping.controller.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.controller.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "harness-ccm-autostopping.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.controller.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ include "harness-ccm-autostopping.controller.name" . }}
+          securityContext:
+            {{- toYaml .Values.controller.securityContext | nindent 12 }}
+          image: "{{ .Values.controller.image.repository }}:{{ .Values.controller.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.controller.image.pullPolicy }}
+          env:
+          - name: HARNESS_API
+            value: https://{{ .Values.harnessUrl }}/gateway/lw/api
+          - name: CONNECTOR_ID
+            value: {{ .Values.connectorId }}
+          - name: REMOTE_ACCOUNT_ID
+            value: {{ .Values.accountId }}
+          ports:
+          - containerPort: 18000
+            name: envoy-snapshot
+          - containerPort: 8093
+            protocol: TCP
+            name: progress
+          - containerPort: 9443
+            protocol: TCP
+            name: webhook
+          resources:
+            {{- toYaml .Values.controller.resources | nindent 12 }}
+          volumeMounts:
+          - mountPath: /tmp/k8s-webhook-server/serving-certs
+            name: serving-certs
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      volumes:
+      - name: serving-certs
+        emptyDir: {}
+      {{- with .Values.controller.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.controller.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.controller.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

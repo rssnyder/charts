@@ -1,0 +1,86 @@
+# Default values for harness-ccm-autostopping.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# CCM K8s connector id for the cluster you are installing into
+connectorId:
+
+# Harness account id
+accountId:
+
+# A Harness API token. The token must have CCM:Read and Autostopping:Create/Edit/Delete access
+apiToken:
+
+# optional settings
+
+# Use existing Secret which stores apiToken key instead of creating a new one. The value should be set with the `apiToken` key inside the secret.
+## If set, this parameter takes precedence over "apiToken".
+## If set, the secret name must be EXACTLY "harness-api-key"
+existingApiKey:
+
+# Harness  URL, should be changed to "app3.harness.io" if you are using that cluster
+harnessUrl: app.harness.io
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+controller:
+  image:
+    repository: harness/autostopping-controller
+    pullPolicy: IfNotPresent
+    # Overrides the image tag whose default is the chart appVersion.
+    tag: ""
+
+  podAnnotations: {}
+
+  podSecurityContext: {}
+    # fsGroup: 2000
+
+  securityContext: {}
+    # capabilities:
+    #   drop:
+    #   - ALL
+    # readOnlyRootFilesystem: true
+    # runAsNonRoot: true
+    # runAsUser: 1000
+
+  resources: {}
+
+  nodeSelector: {}
+
+  tolerations: []
+
+  affinity: {}
+
+router:
+  image:
+    repository: envoyproxy/envoy
+    pullPolicy: IfNotPresent
+    tag: v1.18-latest
+
+  podAnnotations: {}
+
+  podSecurityContext: {}
+    # fsGroup: 2000
+
+  securityContext: {}
+    # capabilities:
+    #   drop:
+    #   - ALL
+    # readOnlyRootFilesystem: true
+    # runAsNonRoot: true
+    # runAsUser: 1000
+
+  resources: {}
+
+  nodeSelector: {}
+
+  tolerations: []
+
+  affinity: {}

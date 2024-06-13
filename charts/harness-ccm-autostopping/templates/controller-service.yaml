@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Service
+metadata:
+  # name: {{ include "harness-ccm-autostopping.controller.name" . }}
+  name: autostopping-controller
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "harness-ccm-autostopping.labels" . | nindent 4 }}
+spec:
+  ports:
+  - port: 18000
+    protocol: TCP
+    name: envoy-snapshot
+  - port: 80
+    protocol: TCP
+    targetPort: 8093
+    name: progress
+  - port: 9443
+    protocol: TCP
+    targetPort: 9443
+    name: webhook
+  selector:
+    {{- include "harness-ccm-autostopping.controller.selectorLabels" . | nindent 6 }}

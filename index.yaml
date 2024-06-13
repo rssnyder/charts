@@ -1,0 +1,206 @@
+apiVersion: v1
+entries:
+  discord-bot-cryptoprices:
+  - apiVersion: v2
+    appVersion: 0.0.2
+    created: "2024-06-12T23:06:54.459113735Z"
+    description: A Helm chart for Kubernetes
+    digest: 1f923e6f4e40684378f90407fd974f7b649034dad6bcc402f4e80ef54fbf8c27
+    name: discord-bot-cryptoprices
+    type: application
+    urls:
+    - https://github.com/rssnyder/discord-bot-cryptoprices/releases/download/discord-bot-cryptoprices-0.0.2/discord-bot-cryptoprices-0.0.2.tgz
+    version: 0.0.2
+  - apiVersion: v2
+    appVersion: 0.0.1
+    created: "2024-06-12T01:54:23.918281436Z"
+    description: A Helm chart for Kubernetes
+    digest: a52a930f3c55258120848eb803a909d3f4f65e6629465d557fd9d3e1bf464dff
+    name: discord-bot-cryptoprices
+    type: application
+    urls:
+    - https://github.com/rssnyder/discord-bot-cryptoprices/releases/download/discord-bot-cryptoprices-0.0.1/discord-bot-cryptoprices-0.0.1.tgz
+    version: 0.0.1
+  harness-ccm-autostopping:
+  - apiVersion: v2
+    appVersion: 1.1.3
+    created: "2024-02-21T18:31:05.008249346Z"
+    description: A Helm chart for the Harness CCM AutoStopping controller and router
+    digest: 74fa8bdd22729936c915e67e157643538a4dfc8884cbc39c49d43fee93cd1a21
+    name: harness-ccm-autostopping
+    type: application
+    urls:
+    - https://github.com/rssnyder/harness-ccm-autostopping/releases/download/harness-ccm-autostopping-0.1.0/harness-ccm-autostopping-0.1.0.tgz
+    version: 0.1.0
+  - apiVersion: v2
+    appVersion: 1.1.3
+    created: "2024-02-21T17:39:22.606462406Z"
+    description: A Helm chart for the Harness CCM AutoStopping controller and router
+    digest: a27b75c0a93d4666358ab315dcbc39fc7f5d610681aa885e5cc662263ab680b0
+    name: harness-ccm-autostopping
+    type: application
+    urls:
+    - https://github.com/rssnyder/harness-ccm-autostopping/releases/download/harness-ccm-autostopping-0.1.0-alpha/harness-ccm-autostopping-0.1.0-alpha.tgz
+    version: 0.1.0-alpha
+  ff-proxy:
+  - apiVersion: v2
+    appVersion: 2.0.0
+    created: "2024-06-03T16:19:40.090309903Z"
+    description: A Helm chart for the Harness Feature Flag Relay Proxy (v2)
+    digest: d66ffea43030294586254a4eaf73a587747ffc546ecb33c6596e913996ea50aa
+    name: ff-proxy
+    type: application
+    urls:
+    - https://github.com/rssnyder/feature-flag-relay-proxy/releases/download/ff-proxy-0.1.15/ff-proxy-0.1.15.tgz
+    version: 0.1.15
+  - apiVersion: v2
+    appVersion: 2.0.0-rc.28
+    created: "2024-05-23T19:20:26.443507565Z"
+    description: A Helm chart for the Harness Feature Flag Relay Proxy (v2)
+    digest: 4d57ce894f4072031f14a547cffbafc6de9f5929235a9a8bb4807c7d88371657
+    name: ff-proxy
+    type: application
+    urls:
+    - https://github.com/rssnyder/feature-flag-relay-proxy/releases/download/ff-proxy-0.1.14/ff-proxy-0.1.14.tgz
+    version: 0.1.14
+  - apiVersion: v2
+    appVersion: 2.0.0-rc.25
+    created: "2024-05-20T15:03:26.264223383Z"
+    description: A Helm chart for the Harness Feature Flag Relay Proxy (v2)
+    digest: 24b61f8fb29c066e579563af46de21d633dad2cdf763db87597ffa341aa35f0f
+    name: ff-proxy
+    type: application
+    urls:
+    - https://github.com/rssnyder/feature-flag-relay-proxy/releases/download/ff-proxy-0.1.13/ff-proxy-0.1.13.tgz
+    version: 0.1.13
+  - apiVersion: v2
+    appVersion: 2.0.0-rc.23
+    created: "2024-05-01T17:25:14.4328811Z"
+    description: A Helm chart for the Harness Feature Flag Relay Proxy (v2)
+    digest: 30dcdc9395f27b44d7507257286d9b7ff35d9192fd16535d120a13bceee0dd07
+    name: ff-proxy
+    type: application
+    urls:
+    - https://github.com/rssnyder/feature-flag-relay-proxy/releases/download/ff-proxy-0.1.12/ff-proxy-0.1.12.tgz
+    version: 0.1.12
+  - apiVersion: v2
+    appVersion: 2.0.0-rc.23
+    created: "2024-04-30T23:19:48.04163766Z"
+    description: A Helm chart for the Harness Feature Flag Relay Proxy (v2)
+    digest: 79af16471fcc09e74592ac6ac2f7da55ea5c01ec0ef8a7c36add2a98d297ade3
+    name: ff-proxy
+    type: application
+    urls:
+    - https://github.com/rssnyder/feature-flag-relay-proxy/releases/download/ff-proxy-0.1.11/ff-proxy-0.1.11.tgz
+    version: 0.1.11
+  - apiVersion: v2
+    appVersion: 2.0.0-rc.22
+    created: "2024-04-24T19:07:08.017189269Z"
+    description: A Helm chart for the Harness Feature Flag Relay Proxy (v2)
+    digest: a1215c85e4b3836167a633bc05d72bc1eb175429ca5198a8040f5d85a4774d7a
+    name: ff-proxy
+    type: application
+    urls:
+    - https://github.com/rssnyder/feature-flag-relay-proxy/releases/download/ff-proxy-0.1.10/ff-proxy-0.1.10.tgz
+    version: 0.1.10
+  - apiVersion: v2
+    appVersion: 2.0.0-rc.21
+    created: "2024-04-23T14:59:40.488025908Z"
+    description: A Helm chart for the Harness Feature Flag Relay Proxy (v2)
+    digest: be6b2247451e70526ac64b2a54bfd2f5bcd99b218dd3afc1439215d68893517c
+    name: ff-proxy
+    type: application
+    urls:
+    - https://github.com/rssnyder/feature-flag-relay-proxy/releases/download/ff-proxy-0.1.9/ff-proxy-0.1.9.tgz
+    version: 0.1.9
+  - apiVersion: v2
+    appVersion: 2.0.0-rc.21
+    created: "2024-04-19T15:49:13.770281607Z"
+    description: A Helm chart for the Harness Feature Flag Relay Proxy (v2)
+    digest: 94a9cf6a9b588a33136e869f6614cbef77023aba0c7b51755792e179833106c3
+    name: ff-proxy
+    type: application
+    urls:
+    - https://github.com/rssnyder/feature-flag-relay-proxy/releases/download/ff-proxy-0.1.8/ff-proxy-0.1.8.tgz
+    version: 0.1.8
+  - apiVersion: v2
+    appVersion: v2.0.0-rc.13
+    created: "2024-04-11T13:37:09.622637604Z"
+    description: A Helm chart for the Harness Feature Flag Relay Proxy (v2)
+    digest: 8bf45616dba87a5bfeacf36db2f1bf5228de1a2d89ce3ca027e2f61c4b607233
+    name: ff-proxy
+    type: application
+    urls:
+    - https://github.com/rssnyder/feature-flag-relay-proxy/releases/download/ff-proxy-0.1.7/ff-proxy-0.1.7.tgz
+    version: 0.1.7
+  - apiVersion: v2
+    appVersion: v2.0.0-rc.13
+    created: "2024-04-03T21:42:51.314513629Z"
+    description: A Helm chart for the Harness Feature Flag Relay Proxy (v2)
+    digest: ff50d07ba7db4fd12ef75bb2673cbd4c12b8f7586625f17e6ba421d36d8d3a55
+    name: ff-proxy
+    type: application
+    urls:
+    - https://github.com/rssnyder/feature-flag-relay-proxy/releases/download/ff-proxy-0.1.6/ff-proxy-0.1.6.tgz
+    version: 0.1.6
+  - apiVersion: v2
+    appVersion: v2.0.0-rc.13
+    created: "2024-04-03T20:05:46.082097476Z"
+    description: A Helm chart for the Harness Feature Flag Relay Proxy (v2)
+    digest: 5c61b5d3374fecf0dc971f055202780c42ea28e96aaafcd2c6d44e6fca677ba1
+    name: ff-proxy
+    type: application
+    urls:
+    - https://github.com/rssnyder/feature-flag-relay-proxy/releases/download/ff-proxy-0.1.5/ff-proxy-0.1.5.tgz
+    version: 0.1.5
+  - apiVersion: v2
+    appVersion: v2.0.0-rc.13
+    created: "2024-04-03T19:59:38.340436457Z"
+    description: A Helm chart for the Harness Feature Flag Relay Proxy (v2)
+    digest: 9fd946171d25ec8a74e57aa2690aab12984dec80a72d3ad8affacec5fa8836c2
+    name: ff-proxy
+    type: application
+    urls:
+    - https://github.com/rssnyder/feature-flag-relay-proxy/releases/download/ff-proxy-0.1.4/ff-proxy-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
+    appVersion: 2.0.0-rc.19
+    created: "2024-04-03T19:41:51.825927976Z"
+    description: A Helm chart for the Harness Feature Flag Relay Proxy (v2)
+    digest: 042349e470f1ab3421a314f8546a5fe4c839580ae135da2880051ef96bbcb057
+    name: ff-proxy
+    type: application
+    urls:
+    - https://github.com/rssnyder/feature-flag-relay-proxy/releases/download/ff-proxy-0.1.3/ff-proxy-0.1.3.tgz
+    version: 0.1.3
+  - apiVersion: v2
+    appVersion: v2.0.0-rc.13
+    created: "2024-03-14T13:14:16.845678728Z"
+    description: A Helm chart for the Harness Feature Flag Relay Proxy (v2)
+    digest: 51b48b479b5061809fa7fb2adc5929bc5e5f7ec527a6fd351524b19a3a5218f8
+    name: ff-proxy
+    type: application
+    urls:
+    - https://github.com/rssnyder/feature-flag-relay-proxy/releases/download/ff-proxy-0.1.2/ff-proxy-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: v2.0.0-rc.13
+    created: "2024-03-12T14:50:34.610101063Z"
+    description: A Helm chart for the Harness Feature Flag Relay Proxy (v2)
+    digest: 31899c166051e3e84fa0c5d9ae24fd4a04b7d3998ad4a4a327b8f3b3d54a2f1f
+    name: ff-proxy
+    type: application
+    urls:
+    - https://github.com/rssnyder/feature-flag-relay-proxy/releases/download/ff-proxy-0.1.1/ff-proxy-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: v2.0.0-rc.13
+    created: "2024-02-16T21:10:08.991124779Z"
+    description: A Helm chart for Kubernetes
+    digest: 7e1a6d1f3219ef395eb1de25a980b5456038650c491ea0fbf7f1afc384e75694
+    name: ff-proxy
+    type: application
+    urls:
+    - https://github.com/rssnyder/feature-flag-relay-proxy/releases/download/ff-proxy-0.1.0/ff-proxy-0.1.0.tgz
+    version: 0.1.0
+generated: "2024-06-12T23:06:54.459122812Z"
