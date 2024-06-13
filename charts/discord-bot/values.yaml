@@ -1,0 +1,38 @@
+token:
+nickname:
+activity:
+status:
+refresh:
+
+image:
+  repository: ghcr.io/rssnyder/discord-bot
+  pullPolicy: IfNotPresent
+  tag:
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+podAnnotations:
+  prometheus.io/path: /metrics
+  prometheus.io/port: "8080"
+  prometheus.io/scrape: "true"
+podLabels: {}
+
+podSecurityContext: {}
+
+securityContext: {}
+
+resources:
+  limits:
+    cpu: 10m
+    memory: 8Mi
+  requests:
+    cpu: 1m
+    memory: 6Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
