@@ -20,6 +20,7 @@ existingAuthSecret:
 redis:
   address:
   db: 0
+  username:
   password:
   # Use existing Secret which stores REDIS_PASSWORD key instead of creating a new one. The value should be set with the `REDIS_PASSWORD` key inside the secret.
   ## If set, this parameter takes precedence over "redis.password".

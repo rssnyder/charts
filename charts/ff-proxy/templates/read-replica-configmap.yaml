@@ -8,6 +8,7 @@ metadata:
     {{- include "ff-proxy.labels" . | nindent 4 }}
 data:
   REDIS_ADDRESS: {{ .Values.redis.address }}
+  REDIS_USERNAME: {{ .Values.redis.username }}
   REDIS_DB: "{{ .Values.redis.db }}"
   READ_REPLICA: "true"
   {{- if .Values.clientService }}
