@@ -10,15 +10,15 @@ this chart deploys the components in red
 > :warning: You must have the target cluster set up in Harness with a K8s and CCM K8s connector before you deploy this chart
 
 install repo
-`helm repo add harness-ccm-autostopping https://rssnyder.github.io/harness-ccm-autostopping`
+`helm repo add rssnyder https://rssnyder.github.io/charts`
 
 update repo
-`helm repo update harness-ccm-autostopping`
+`helm repo update rssnyder`
 
 deploy chart (you must set your namespace to `harness-autostopping`)
 ```
 helm upgrade -i harness-autostopping --namespace harness-autostopping --create-namespace \
-  harness-ccm-autostopping/harness-ccm-autostopping \
+  rssnyder/harness-ccm-autostopping \
   --set accountId=wlgELJ0TTre5aZhzpt8gVA \
   --set connectorId=_lab_ccm \
   --set apiToken=sat.wlgELJ0TTre5aZhzpt8gVA.xxxxxxxxxxxx
