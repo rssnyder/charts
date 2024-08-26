@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: cluster-orch-interrupt-listener
+  namespace: kube-system
+  labels:
+    {{- include "harness-ccm-cluster-orchestrator.interrupt.selectorLabels" . | nindent 4 }}
+spec:
+  selector:
+    matchLabels:
+      {{- include "harness-ccm-cluster-orchestrator.interrupt.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "harness-ccm-cluster-orchestrator.interrupt.selectorLabels" . | nindent 8 }}
+    spec:
+      tolerations:
+      - key: node-role.kubernetes.io/control-plane
+        operator: Exists
+        effect: NoSchedule
+      - key: node-role.kubernetes.io/master
+        operator: Exists
+        effect: NoSchedule
+      containers:
+      - name: interrupt-listener
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+        command:
+        - 'cginterruptwatcher'
+      terminationGracePeriodSeconds: 30
+      serviceAccountName: {{ include "harness-ccm-cluster-orchestrator.serviceAccountName" . }}
+      serviceAccount: {{ include "harness-ccm-cluster-orchestrator.serviceAccountName" . }}
