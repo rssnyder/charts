@@ -1,0 +1,112 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cluster-orch-operator
+  labels:
+    {{- include "harness-ccm-cluster-orchestrator.operator.selectorLabels" . | nindent 4 }}
+  namespace: kube-system
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      {{- include "harness-ccm-cluster-orchestrator.operator.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        {{- include "harness-ccm-cluster-orchestrator.operator.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+        - name: controller
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          command:
+          - 'cgoperator'
+          ports:
+            - name: http-metrics
+              containerPort: 8080
+              protocol: TCP
+            - name: http
+              containerPort: 8081
+              protocol: TCP
+          env:
+            - name: CLUSTER_NAME
+              value: {{ .Values.clusterName }}
+            - name: CLUSTER_REGION
+              value: {{ .Values.clusterRegion }}
+            - name: REMOTE_ACCOUNT_ID
+              value: {{ .Values.remoteAccountID }}
+            - name: CONNECTOR_ID
+              value: {{ .Values.connectorID }}
+            - name: CLUSTER_ID
+              value: {{ .Values.clusterID }}
+            - name: HARNESS_API
+              value: {{ .Values.harnessAPI }}
+            - name: CLUSTER_ENDPOINT
+              value: >-
+                {{ .Values.clusterEndpoint }}
+            - name: AWS_DEFAULT_INSTANCE_PROFILE
+              value: {{ .Values.awsDefaultInstanceProfile }}
+            - name: AWS_NODE_ROLE_ARN
+              value: {{ .Values.awsNodeRoleARN }}
+            - name: SYSTEM_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.namespace
+          resources:
+            limits:
+              cpu: '1'
+              memory: 1Gi
+            requests:
+              cpu: '1'
+              memory: 1Gi
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+              scheme: HTTP
+            timeoutSeconds: 1
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /readyz
+              port: http
+              scheme: HTTP
+            timeoutSeconds: 1
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: IfNotPresent      
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      nodeSelector:
+        kubernetes.io/os: linux
+      serviceAccountName: {{ include "harness-ccm-cluster-orchestrator.serviceAccountName" . }}
+      serviceAccount: {{ include "harness-ccm-cluster-orchestrator.serviceAccountName" . }}
+      securityContext:
+        fsGroup: 1000
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: karpenter.sh/provisioner-name
+                    operator: DoesNotExist
+      schedulerName: default-scheduler
+      priorityClassName: system-cluster-critical
+      topologySpreadConstraints:
+        - maxSkew: 1
+          topologyKey: topology.kubernetes.io/zone
+          whenUnsatisfiable: ScheduleAnyway
+          labelSelector:
+            matchLabels:
+              {{- include "harness-ccm-cluster-orchestrator.operator.selectorLabels" . | nindent 14 }}
+  strategy:
+    type: Recreate
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
