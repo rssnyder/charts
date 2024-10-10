@@ -205,6 +205,16 @@ entries:
     version: 0.1.0
   harness-ccm-autostopping:
   - apiVersion: v2
+    appVersion: 1.1.9
+    created: "2024-10-10T15:48:41.224012224Z"
+    description: A Helm chart for the Harness CCM AutoStopping controller and router
+    digest: e5f0dce1feb412e590171b88d9b81f6a0c42f6e9c60c2acff5d5dcdede54c49a
+    name: harness-ccm-autostopping
+    type: application
+    urls:
+    - https://github.com/rssnyder/charts/releases/download/harness-ccm-autostopping-0.1.2/harness-ccm-autostopping-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
     appVersion: 1.1.8
     created: "2024-07-01T18:34:31.414490905Z"
     description: A Helm chart for the Harness CCM AutoStopping controller and router
@@ -234,4 +244,15 @@ entries:
     urls:
     - https://github.com/rssnyder/harness-ccm-autostopping/releases/download/harness-ccm-autostopping-0.1.0-alpha/harness-ccm-autostopping-0.1.0-alpha.tgz
     version: 0.1.0-alpha
-generated: "2024-07-01T18:34:31.414553472Z"
+  harness-ccm-cluster-orchestrator:
+  - apiVersion: v2
+    appVersion: beta-0.0.1
+    created: "2024-10-10T15:48:41.333987611Z"
+    description: A Helm chart for Kubernetes
+    digest: 10411235534daf09c158c28fd7613c79da31b41fe80db73da1b542d4b9348919
+    name: harness-ccm-cluster-orchestrator
+    type: application
+    urls:
+    - https://github.com/rssnyder/charts/releases/download/harness-ccm-cluster-orchestrator-0.1.0/harness-ccm-cluster-orchestrator-0.1.0.tgz
+    version: 0.1.0
+generated: "2024-10-10T15:48:41.334052361Z"
