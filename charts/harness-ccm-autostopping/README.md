@@ -28,6 +28,13 @@ helm upgrade -i harness-autostopping --namespace harness-autostopping --create-n
 - connectorId: the ID for the CCM K8s connector for this cluster
 - apiToken: a Harness API key with at least ccm:admin for all account level resources
 
+## troubleshooting
+
+to turn on debug logging, you can set the following values:
+```yaml
+router.logLevel: debug
+```
+
 ## development notes
 
 things that must be hard-coded:

@@ -36,6 +36,8 @@ spec:
           args:
           - -c
           - /etc/envoy.yaml
+          - --log-level
+          - {{ .Values.router.logLevel }}
           ports:
           - containerPort: 10000
             protocol: TCP
