@@ -64,6 +64,9 @@ router:
     pullPolicy: IfNotPresent
     tag: v1.18-latest
 
+  # set log via ENVOY_LOG_LEVEL: trace, debug, info, warning/warn, error, critical, off
+  logLevel: warning
+
   podAnnotations: {}
 
   podSecurityContext: {}
