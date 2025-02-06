@@ -1,3 +1,4 @@
+{{- if .Values.router.enabled }}
 apiVersion: v1
 kind: Service
 metadata:
@@ -14,3 +15,4 @@ spec:
   selector:
     {{- include "harness-ccm-autostopping.router.selectorLabels" . | nindent 6 }}
   type: ClusterIP
+{{- end }}

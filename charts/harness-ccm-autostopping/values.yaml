@@ -59,6 +59,10 @@ controller:
   affinity: {}
 
 router:
+
+  # if you are only doing scheduled stopping, you can disable the router
+  enabled: true
+
   image:
     repository: envoyproxy/envoy
     pullPolicy: IfNotPresent
