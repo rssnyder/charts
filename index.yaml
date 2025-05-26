@@ -13,6 +13,16 @@ entries:
     version: 0.0.2
   discord-bot-cryptoprices:
   - apiVersion: v2
+    appVersion: 0.0.5
+    created: "2025-05-26T18:17:13.560294026Z"
+    description: A Helm chart for Kubernetes
+    digest: 98c36a7017da3562f8a7118444b8def3d8b660ef52e70f4d4901070c66123610
+    name: discord-bot-cryptoprices
+    type: application
+    urls:
+    - https://github.com/rssnyder/charts/releases/download/discord-bot-cryptoprices-0.0.4/discord-bot-cryptoprices-0.0.4.tgz
+    version: 0.0.4
+  - apiVersion: v2
     appVersion: 0.0.3
     created: "2024-06-13T23:02:40.02590419Z"
     description: A Helm chart for Kubernetes
@@ -275,4 +285,4 @@ entries:
     urls:
     - https://github.com/rssnyder/charts/releases/download/harness-ccm-cluster-orchestrator-0.1.0/harness-ccm-cluster-orchestrator-0.1.0.tgz
     version: 0.1.0
-generated: "2025-02-06T15:02:55.915842153Z"
+generated: "2025-05-26T18:17:13.560377347Z"
