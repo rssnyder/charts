@@ -49,3 +49,14 @@ Selector labels
 app.kubernetes.io/name: {{ include "discord-bot-cryptoprices.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
+
+{{/*
+Define the token name
+*/}}
+{{- define "discord-bot-cryptoprices.token" -}}
+{{- if not .Values.existingToken }}
+{{- include "discord-bot-cryptoprices.fullname" . }}
+{{- else }}
+{{- .Values.existingToken | trunc 63 | toString }}
+{{- end }}
+{{- end }}
