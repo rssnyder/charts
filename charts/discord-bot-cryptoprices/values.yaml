@@ -1,10 +1,14 @@
-token:
 symbol:
 setNickname: "true"
 nicknameHeader: ""
 activityMsg: ""
 status: 2
 refresh: 120
+
+# specify a discord bot token
+token:
+# use an existing secret with TOKEN set
+existingToken:
 
 image:
   repository: ghcr.io/rssnyder/discord-bot-cryptoprices

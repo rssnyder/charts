@@ -37,9 +37,10 @@ spec:
             - name: prom
               containerPort: 8080
               protocol: TCP
+          envFrom:
+          - secretRef:
+              name: {{ include "discord-bot-cryptoprices.token" . }}
           env:
-          - name: TOKEN
-            value: {{ .Values.token }}
           - name: SYMBOL
             value: {{ .Values.symbol }}
           {{- if .Values.setNickname }}
