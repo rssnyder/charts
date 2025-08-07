@@ -79,10 +79,10 @@ Create the name of the service account to use
 Create the name of the discovery service account to use
 */}}
 {{- define "harness-ccm-autostopping.discoveryServiceAccountName" -}}
-{{- if .Values.discoveryServiceAccount.create }}
-{{- default (include "harness-ccm-autostopping.fullname" .) .Values.discoveryServiceAccount.name }}
+{{- if .Values.discovery.serviceAccount.create }}
+{{- default (include "harness-ccm-autostopping.fullname" .) .Values.discovery.serviceAccount.name }}
 {{- else }}
-{{- default "default" .Values.discoveryServiceAccount.name }}
+{{- default "default" .Values.discovery.serviceAccount.name }}
 {{- end }}
 {{- end }}
 

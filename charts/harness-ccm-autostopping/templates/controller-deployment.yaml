@@ -44,7 +44,7 @@ spec:
           - name: REMOTE_ACCOUNT_ID
             value: {{ .Values.accountId }}
           - name: PROGRESS_PAGE_AGENT_SVC
-            value: progress-service
+            value: {{ include "harness-ccm-autostopping.progressAgent.name" . }}
           - name: PROGRESS_PAGE_AGENT_PORT
             value: "8290"
           - name: PROGRESS_PAGE_AGENT_NS

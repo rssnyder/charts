@@ -8,5 +8,5 @@ roleRef:
   name: {{ include "harness-ccm-autostopping.fullname" . }}-discovery
 subjects:
 - kind: ServiceAccount
-  name: {{ include "harness-ccm-autostopping.serviceAccountName" . }}-discovery
+  name: {{ include "harness-ccm-autostopping.discoveryServiceAccountName" . }}
   namespace: {{ .Release.Namespace }}

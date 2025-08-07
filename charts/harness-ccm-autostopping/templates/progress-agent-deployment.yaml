@@ -1,7 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "harness-ccm-autostopping.progressAgent.name" . }}
+  # name: {{ include "harness-ccm-autostopping.progressAgent.name" . }}
+  name: progress-agent
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "harness-ccm-autostopping.labels" . | nindent 4 }}
