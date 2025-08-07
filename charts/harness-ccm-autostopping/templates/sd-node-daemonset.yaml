@@ -1,0 +1,59 @@
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: {{ include "harness-ccm-autostopping.sdNode.name" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    k8s-app: sd-node
+    {{- include "harness-ccm-autostopping.labels" . | nindent 4 }}
+spec:
+  selector:
+    matchLabels:
+      {{- include "harness-ccm-autostopping.sdNode.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.sdNode.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "harness-ccm-autostopping.sdNode.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.sdNode.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "harness-ccm-autostopping.discoveryServiceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.sdNode.podSecurityContext | nindent 8 }}
+      dnsPolicy: ClusterFirstWithHostNet
+      hostNetwork: true
+      hostPID: true
+      containers:
+      - name: sd-node
+        image: {{ .Values.sdNode.image.repository }}:{{ .Values.sdNode.image.tag | default .Chart.AppVersion }}
+        imagePullPolicy: {{ .Values.sdNode.image.pullPolicy }}
+        securityContext:
+          {{- toYaml .Values.sdNode.securityContext | nindent 12 }}
+        command:
+        - collector
+        args:
+        - --permanent-installation=true
+        - --webhook-only=true
+        - --debug=true
+        - --mode=node
+        env:
+        - name: MY_NODE_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName
+        - name: WEBHOOK_URL
+          # value: http://{{ include "harness-ccm-autostopping.controller.name" . }}.{{ .Release.Namespace }}.svc.cluster.local:9443/traffic-events
+          value: http://autostopping-controller.{{ .Release.Namespace }}.svc.cluster.local:9443/traffic-events
+        resources:
+          {{- toYaml .Values.sdNode.resources | nindent 12 }}
+        {{- with .Values.sdNode.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
