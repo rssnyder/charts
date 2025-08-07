@@ -6,13 +6,19 @@ You can now create autostopping rules:
     name: <autostopping rule name>
     namespace: <namespace of your k8s application>
     annotations:
-    harness.io/cloud-connector-id: <any cloud ccm connector id with autostopping enabled>
+      harness.io/cloud-connector-id: <any cloud ccm connector id with autostopping enabled>
   spec:
-    service:  
-      name: <replace with your service name>
-      port: 80
-    ingress:
-      name: <replace with ingress name>
-      controllerName: nginx
-    idleTimeMins: 15
+    idleTimeMins: 5
     hideProgressPage: false
+    workloads:
+      <autostopping rule name>:
+        namespace: <namespace of your k8s application>
+        name: <autostopping rule name>
+        id: <autostopping rule name>
+        desired: <desired number of replicas>
+        type: <k8s resource type>
+        warmup_delay_sec: 0
+        traffic_routes:
+          - service_name: <k8s service name>
+            service_port: <k8s service port>
+    dependencies: []

@@ -28,11 +28,21 @@ helm upgrade -i harness-autostopping --namespace harness-autostopping --create-n
 - connectorId: the ID for the CCM K8s connector for this cluster
 - apiToken: a Harness API key with at least ccm:admin for all account level resources
 
-## troubleshooting
 
-to turn on debug logging, you can set the following values:
+### cluster orchestrator
+
+if you are also using cluster orchestrator, you will need to add annotations for spot nodes:
 ```yaml
-router.logLevel: debug
+discovery:
+  tolerations:
+    - effect: NoSchedule
+      key: ccm.harness.io/spot-ready
+      value: Ready
+      effect: "NoSchedule"
+    - key: "compute"
+      operator: "Equal"
+      value: "dedicated"
+      effect: "NoSchedule"
 ```
 
 ## development notes
@@ -41,7 +51,7 @@ things that must be hard-coded:
 
 namespace: `harness-autostopping`
 
-service name for router: `autostopping-router`
+deployment name for progress watcher: `progress-agent`
 
 service name for controller: `autostopping-controller` (therefor also hard-coded in the router configmap)
 

@@ -8,13 +8,6 @@ metadata:
     {{- include "harness-ccm-autostopping.labels" . | nindent 4 }}
 spec:
   ports:
-  - port: 18000
-    protocol: TCP
-    name: envoy-snapshot
-  - port: 80
-    protocol: TCP
-    targetPort: 8093
-    name: progress
   - port: 9443
     protocol: TCP
     targetPort: 9443

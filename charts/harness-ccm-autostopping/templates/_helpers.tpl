@@ -51,10 +51,17 @@ app.kubernetes.io/component: {{ include "harness-ccm-autostopping.name" . }}-con
 {{- end }}
 
 {{/*
-Selector labels for router
+Selector labels for progress-agent
 */}}
-{{- define "harness-ccm-autostopping.router.selectorLabels" -}}
-app.kubernetes.io/component: {{ include "harness-ccm-autostopping.name" . }}-router
+{{- define "harness-ccm-autostopping.progressAgent.selectorLabels" -}}
+app.kubernetes.io/component: {{ include "harness-ccm-autostopping.name" . }}-progress-agent
+{{- end }}
+
+{{/*
+Selector labels for sd-node
+*/}}
+{{- define "harness-ccm-autostopping.sdNode.selectorLabels" -}}
+app.kubernetes.io/component: {{ include "harness-ccm-autostopping.name" . }}-sd-node
 {{- end }}
 
 {{/*
@@ -69,13 +76,27 @@ Create the name of the service account to use
 {{- end }}
 
 {{/*
+Create the name of the discovery service account to use
+*/}}
+{{- define "harness-ccm-autostopping.discoveryServiceAccountName" -}}
+{{- if .Values.discovery.serviceAccount.create }}
+{{- default (include "harness-ccm-autostopping.fullname" .) .Values.discovery.serviceAccount.name }}
+{{- else }}
+{{- default "default" .Values.discovery.serviceAccount.name }}
+{{- end }}
+{{- end }}
+
+{{/*
 Define resource names
 */}}
 {{- define "harness-ccm-autostopping.controller.name" -}}
 {{- include "harness-ccm-autostopping.fullname" . }}-controller
 {{- end }}
-{{- define "harness-ccm-autostopping.router.name" -}}
-{{- include "harness-ccm-autostopping.fullname" . }}-router
+{{- define "harness-ccm-autostopping.progressAgent.name" -}}
+{{- include "harness-ccm-autostopping.fullname" . }}-progress-agent
+{{- end }}
+{{- define "harness-ccm-autostopping.sdNode.name" -}}
+{{- include "harness-ccm-autostopping.fullname" . }}-sd-node
 {{- end }}
 
 {{/*

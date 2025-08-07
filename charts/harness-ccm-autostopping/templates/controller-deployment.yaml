@@ -32,8 +32,10 @@ spec:
         - name: {{ include "harness-ccm-autostopping.controller.name" . }}
           securityContext:
             {{- toYaml .Values.controller.securityContext | nindent 12 }}
-          image: "{{ .Values.controller.image.repository }}:{{ .Values.controller.image.tag | default .Chart.AppVersion }}"
-          imagePullPolicy: {{ .Values.controller.image.pullPolicy }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command:
+          - 'operator'
           env:
           - name: HARNESS_API
             value: https://{{ .Values.harnessUrl }}/gateway/lw/api
@@ -41,12 +43,15 @@ spec:
             value: {{ .Values.connectorId }}
           - name: REMOTE_ACCOUNT_ID
             value: {{ .Values.accountId }}
+          - name: PROGRESS_PAGE_AGENT_SVC
+            value: {{ include "harness-ccm-autostopping.progressAgent.name" . }}
+          - name: PROGRESS_PAGE_AGENT_PORT
+            value: "8290"
+          - name: PROGRESS_PAGE_AGENT_NS
+            value: {{ .Release.Namespace }}
+          - name: ENABLE_TRAFFIC_DETECTION
+            value: "true"
           ports:
-          - containerPort: 18000
-            name: envoy-snapshot
-          - containerPort: 8093
-            protocol: TCP
-            name: progress
           - containerPort: 9443
             protocol: TCP
             name: webhook
