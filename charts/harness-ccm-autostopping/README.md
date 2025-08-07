@@ -1,9 +1,6 @@
 # harness-ccm-autostopping
 
-helm chart for the kubernetes autostopping controller and router
-
-this chart deploys the components in red
-![image](https://github.com/rssnyder/harness-ccm-autostopping/assets/7338312/26308903-90a4-4348-8381-36d61a4beec5)
+helm chart for components of the the kubernetes autostopping system
 
 ## usage
 
@@ -38,10 +35,6 @@ discovery:
     - effect: NoSchedule
       key: ccm.harness.io/spot-ready
       value: Ready
-      effect: "NoSchedule"
-    - key: "compute"
-      operator: "Equal"
-      value: "dedicated"
       effect: "NoSchedule"
 ```
 
