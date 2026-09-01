@@ -1,0 +1,43 @@
+symbol:
+setNickname: "true"
+nicknameHeader: ""
+activityMsg: ""
+status: 2
+refresh: 120
+
+# specify a discord bot token
+token: ""
+# use an existing secret with TOKEN set
+existingToken:
+
+image:
+  repository: git.ttdsm.org/rssnyder/discord-bot-stockprices
+  pullPolicy: IfNotPresent
+  tag:
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+podAnnotations:
+  prometheus.io/path: /metrics
+  prometheus.io/port: "8080"
+  prometheus.io/scrape: "true"
+podLabels: {}
+
+podSecurityContext: {}
+
+securityContext: {}
+
+resources:
+  limits:
+    memory: 10Mi
+  requests:
+    cpu: 1m
+    memory: 6Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
